@@ -1,4 +1,4 @@
-
+ % new test version
 
 
 function AAL_centroids_to_MEG_Aston(anatomicalfif);
