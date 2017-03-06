@@ -36,7 +36,7 @@ PLI_risk_free=mean(PLI(groupsize+1:nfiles,:));
 %% create big matrices and save as an .txt file
 
 %%%%%%%------------------------------------------- RISK -------------------------------%%%%%%%  
-M_PLI_risk=MST_PLI_risk' * MST_PLI_risk ;
+M_PLI_risk=PLI_risk' * PLI_risk ;
 
 % now you need to avoid that rows==columns
 for i=1:78
@@ -53,7 +53,7 @@ dlmwrite('M_PLI_risk.txt', M_PLI_risk, 'delimiter','\t','newline','pc')
 
 %%%%%% ------------------------------------- RISK FREE-------------------------------%%%% 
 
-M_PLI_riskfree=PLI_riskfree' * PLI_riskfree ;
+M_PLI_risk_free=PLI_risk_free' * PLI_risk_free ;
 
 
 
@@ -61,17 +61,17 @@ M_PLI_riskfree=PLI_riskfree' * PLI_riskfree ;
 for i=1:78
     for j=i:78
         if(i==j)
-           PLI_riskfree(i,j)=0;  
+           M_PLI_risk_free(i,j)=0;  
         end
     end
 end
 
-save('PLI_riskfree');
+save('M_PLI_risk_free');
 
 
-save('PLI_riskfree');
+save('M_PLI_risk_free');
 % Save as a txt file 
-dlmwrite('PLI_riskfree.txt', PLI_riskfree, 'delimiter','\t','newline','pc')
+dlmwrite('M_PLI_risk_free.txt', M_PLI_risk_free, 'delimiter','\t','newline','pc')
 
 %% MIN- MAX - MEAN values 1x78
 %risk group
