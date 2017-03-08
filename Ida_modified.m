@@ -5,10 +5,14 @@
     
 
 %% data that you want to plot; 1x78 vector, with data in the same order as the Gong atlas
-i=17;
-data(i) = diff_degree(i);
+%i=37;
+%data(i) = diff_degree(i);
+data = NaN*ones(1,78);    %do this to plot only the area where the difference is
+i=37;
+data(i)=37;
 
-%data = x_MST_ecc_mean;
+%diff_ecc = MST_ecc_riskfree-MST_ecc_risk;
+%data=diff_ecc;
 %% 
 colourbar_threshold=[]; % can be used to adjust the colour range (experimental)
 mesh_type = 'spm_canonical'; % assume that input contains 78 AAL ROIs
@@ -26,7 +30,7 @@ indices_in_same_order_as_in_Brainwave = select_ROIs_from_full_AAL(cfg);
 labels = tmplabels(indices_in_same_order_as_in_Brainwave,:); %78 labels
 
 %% plot
-[colourbar_handle, patch_handles] = PaintBrodmannAreas_new2_clean(labels, data, length(data),length(data),nr_views, colour_range, colourbar_threshold, mesh_type);
+[colourbar_handle, patch_handles] = PaintBrodmannAreas_new2_clean_ed(labels, data, length(data),length(data),nr_views, colour_range, colourbar_threshold, mesh_type);
 set(gcf,'Tag','ShowBrainFigure');
 
 display_label = deblank(labels(i,:));
