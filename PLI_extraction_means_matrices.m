@@ -79,9 +79,9 @@ min_risk=min(PLI_risk)
 max_risk=max(PLI_risk)
 mean_risk=mean(PLI_risk)
 %risk free group
-min_riskfree=min(PLI_riskfree)
-max_riskfree=max(PLI_riskfree)
-mean_riskfree=mean(PLI_riskfree)
+min_riskfree=min(PLI_risk_free)
+max_riskfree=max(PLI_risk_free)
+mean_riskfree=mean(PLI_risk_free)
 
 
 
